@@ -133,20 +133,32 @@
                             )}
 
                             {step === 3 && (
-                                <div class="space-y-6 animate-fadeIn">
-                                    <p class="text-gray-300 font-bold text-sm text-center">أدخل الكود في واتساب:</p>
-                                    <div class="bg-black/40 border border-zinc-700 p-6 rounded-2xl inline-block mx-auto shadow-inner">
-                                        <div class="flex items-center justify-center gap-2 mb-4">
-                                            {pairingCode.split('').map((char, i) => (
-                                                <span key={i} class="bg-yellow-500 text-black text-2xl font-black w-8 h-12 flex items-center justify-center rounded-lg shadow-lg border border-white/20">
-                                                    {char}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <button onClick={() => {navigator.clipboard.writeText(pairingCode); alert("تم النسخ ✅");}} class="w-full bg-zinc-800 text-yellow-500 py-2 rounded-xl text-xs font-bold border border-zinc-700">نسخ الكود</button>
-                                    </div>
-                                </div>
-                            )}
+    <div class="space-y-4 animate-fadeIn">
+        <p class="text-gray-300 font-bold text-xs">أدخل الكود في واتساب:</p>
+        
+        {/* تم تصغير الحجم والتباعد هنا */}
+        <div class="bg-black/40 border border-zinc-700 p-3 rounded-xl inline-block mx-auto shadow-inner max-w-full">
+            <div class="flex items-center justify-center gap-1 mb-3">
+                {pairingCode.split('').map((char, i) => (
+                    <span key={i} class="bg-yellow-500 text-black text-lg font-black w-6 h-10 flex items-center justify-center rounded-md shadow-md border border-white/10">
+                        {char}
+                    </span>
+                ))}
+            </div>
+            
+            <button 
+                onClick={() => {
+                    navigator.clipboard.writeText(pairingCode);
+                    alert("تم النسخ ✅");
+                }}
+                class="w-full bg-zinc-800 text-yellow-500 py-2 rounded-lg text-[10px] font-bold border border-zinc-600 active:scale-95"
+            >
+                نسخ الكود
+            </button>
+        </div>
+    </div>
+)}
+
 
                             {/* 5. لوحة التحكم المحدثة: إضافة زر الإرسال وصندوق النتائج */}
                             {step === 4 && (
