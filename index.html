@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramdan Kramer 🤗🤗🤗 </title>
+    <title>Ramadan Kareem 🙈😍😍🤩 </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Fira+Code:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -141,20 +141,39 @@
                             )}
 
                             {step === 3 && (
-                                <div class="space-y-6 animate-fadeIn">
-                                    <p class="text-gray-300 font-bold text-sm text-center">أدخل الكود في واتساب:</p>
-                                    <div class="bg-black/40 border border-zinc-700 p-6 rounded-2xl inline-block mx-auto shadow-inner">
-                                        <div class="flex items-center justify-center gap-2 mb-4">
-                                            {pairingCode.split('').map((char, i) => (
-                                                <span key={i} class="bg-yellow-500 text-black text-2xl font-black w-8 h-12 flex items-center justify-center rounded-lg shadow-lg border border-white/20">
-                                                    {char}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <button onClick={() => {navigator.clipboard.writeText(pairingCode); alert("تم النسخ ✅");}} class="w-full bg-zinc-800 text-yellow-500 py-2 rounded-xl text-xs font-bold border border-zinc-700">نسخ الكود</button>
-                                    </div>
-                                </div>
-                            )}
+    <div class="space-y-4 animate-fadeIn">
+        <p class="text-gray-300 font-bold text-xs">أدخل الكود في واتساب:</p>
+        
+        {/* الحاوية المصغرة للكود */}
+        <div class="bg-black/40 border border-zinc-700 p-3 rounded-xl inline-block mx-auto shadow-inner max-w-full">
+            <div class="flex items-center justify-center gap-1 mb-4 flex-wrap">
+                {pairingCode.split('').map((char, i) => (
+                    <span key={i} class="bg-yellow-500 text-black text-lg font-black w-7 h-11 flex items-center justify-center rounded-md shadow-md border border-white/10">
+                        {char}
+                    </span>
+                ))}
+            </div>
+            
+            {/* زر النسخ المصغر */}
+            <button 
+                onClick={() => {
+                    navigator.clipboard.writeText(pairingCode);
+                    alert("تم النسخ بنجاح ✅");
+                }}
+                class="flex items-center justify-center gap-2 w-full bg-zinc-800 hover:bg-zinc-700 text-yellow-500 py-2 px-4 rounded-xl border border-zinc-600 transition-all active:scale-95 text-[11px] font-bold"
+            >
+                <i class="far fa-copy"></i>
+                نسخ الكود
+            </button>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 text-yellow-500/80 italic text-[10px] mt-2">
+            <div class="animate-pulse w-2 h-2 bg-yellow-500 rounded-full"></div>
+            بانتظار تأكيدك من الهاتف...
+        </div>
+    </div>
+)}
+
 
                             {/* 5. لوحة التحكم المحدثة: إضافة زر الإرسال وصندوق النتائج */}
                             {step === 4 && (
